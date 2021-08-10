@@ -1,0 +1,19 @@
+{
+    "baseUrl": "http://qalab.pl.tivixlabs.com/",
+    "watchForFileChanges": false,
+    "video": false,
+    "waitForAnimations": true,
+    "retries": {
+      "runMode": 1,
+      "openMode": 1
+    },
+    "defaultCommandTimeout": 15000,
+    "reporter": "cypress-mochawesome-reporter",
+    "reporterOptions": {
+    "reportDir": "cypress/reports",
+    "charts": true,
+    "reportPageTitle": "My Test Suite",
+    "embeddedScreenshots": true,
+    "inlineAssets": true
+    }
+}
