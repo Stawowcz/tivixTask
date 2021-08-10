@@ -3,27 +3,6 @@ import * as texts from '../fixtures/texts.js'
 const rentFormLoc = '#rent_form'
 const cardTextLoc = '[class=card-text]'
 
-// function checkModel(model){
-//   let arr = []
-//   let arr2 = []
-//   cy.get('#search-results').find('tbody').find('tr').its('length').then((length)=>{
-//     for (let i = 0; i < length; i++) {
-//       cy.get('#search-results').find('tbody').find('tr').eq(i).find('td').eq(1)
-//       .invoke('text').then((text) => {
-//         if(text === model) {
-//           cy.log(text)
-//           cy.get('#search-results').find('tbody').find('tr').eq(i).find('td').eq(4).invoke('text').then((text2) => {
-//             arr.push(text2)
-//           })
-//         }
-//     });
-//     }
-//     // cy.log(arr.sort())
-//     for (let i=0; i<=arr.length; i++) {
-//       arr2.push(arr[i].replace('$', ''))
-//     }
-//   })
-// }
 
 function checkModel(model){
   cy.get('#search-results').find('tbody').find('tr').its('length').then((length)=>{
@@ -33,13 +12,6 @@ function checkModel(model){
     }
   })
 }
-
-// function checkModel(model){
-//   cy.get('#search-results').find('tbody').find('tr').its('length').then((length)=>{
-    
-//       cy.get('#search-results').find('tbody').find('tr').contains('Mazda 3' && 'Allen PLC')
-//   })
-// }
 
 function checkValidationMessages(nameReq, lastNameReq, emailReq, cardNumberReq) {
   cy.get(rentFormLoc).find('h5').first().should('have.text', nameReq)
@@ -72,7 +44,7 @@ describe('Qalab Car for Rent', function() {
     checkModel(this.data.mazda)
   })
 
-  it.only('Rent a Car and Check if Details Are Ok', () => {
+  it.only('Rent a Volkswagen Touran from Germany, Berlin and Check if Details Are Ok', () => {
     cy.searchCarToRent(this.data.germany, this.data.berlin, this.data.touron, this.data.pickup2, this.data.dropoff2)
     cy.get('#search-results').find('tbody').find('tr').contains(this.data.touron && this.data.adamsGroup).parent().children().last().click()
     checkDetails(this.data.touron, this.data.germany, this.data.berlin, this.data.pickup2, this.data.dropoff2)
