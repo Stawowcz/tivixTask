@@ -2,7 +2,6 @@ import * as texts from '../fixtures/texts.js'
 
 const rentFormLoc = '#rent_form'
 const cardTextLoc = '[class=card-text]'
-// let arr
 
 // function checkModel(model){
 //   let arr = []
@@ -35,6 +34,13 @@ function checkModel(model){
   })
 }
 
+// function checkModel(model){
+//   cy.get('#search-results').find('tbody').find('tr').its('length').then((length)=>{
+    
+//       cy.get('#search-results').find('tbody').find('tr').contains('Mazda 3' && 'Allen PLC')
+//   })
+// }
+
 function checkValidationMessages(nameReq, lastNameReq, emailReq, cardNumberReq) {
   cy.get(rentFormLoc).find('h5').first().should('have.text', nameReq)
   cy.get(rentFormLoc).find('h5').eq(1).should('have.text', lastNameReq)
@@ -66,16 +72,16 @@ describe('Qalab Car for Rent', function() {
     checkModel(this.data.mazda)
   })
 
-  it('Rent a Car and Check if Details Are Ok', () => {
+  it.only('Rent a Car and Check if Details Are Ok', () => {
     cy.searchCarToRent(this.data.germany, this.data.berlin, this.data.touron, this.data.pickup2, this.data.dropoff2)
-    cy.contains(this.data.touron).parent().children().last().click()
+    cy.get('#search-results').find('tbody').find('tr').contains(this.data.touron && this.data.adamsGroup).parent().children().last().click()
     checkDetails(this.data.touron, this.data.germany, this.data.berlin, this.data.pickup2, this.data.dropoff2)
     cy.contains(texts.rent).click()
     cy.fillClientPersonalData(this.data.clientName, this.data.clientSurName, this.data.cartNumber, this.data.email)
     cy.contains(texts.successfully).should('be.visible')
   })
 
-  it.only('Check Validation Message When Client Personal Data Are Not Filled Up', () => {
+  it('Check Validation Message When Client Personal Data Are Not Filled Up', () => {
     cy.searchCarToRent(this.data.germany, this.data.berlin, this.data.touron, this.data.pickup2, this.data.dropoff2)
     cy.contains(this.data.touron).parent()
     .children()

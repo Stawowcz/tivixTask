@@ -1,6 +1,3 @@
-
-import * as texts from '../fixtures/texts.js'
-
 Cypress.Commands.add('searchCarToRent', (country, city, model, pickup, dropoff) => {
     cy.get('#country').select(country)
     cy.get('#city').select(city)
