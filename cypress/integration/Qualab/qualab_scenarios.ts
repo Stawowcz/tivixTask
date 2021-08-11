@@ -4,7 +4,7 @@ const rentFormLoc = '#rent_form'
 const cardTextLoc = '[class=card-text]'
 const searchResultsLoc = '#search-results'
 
-function checkModel(model){
+function checkModel(model:string):void{
     cy.get(searchResultsLoc).find('tbody').find('tr').its('length').then((length)=>{
       for (let i = 0; i < length; i++) {
         cy.get(searchResultsLoc).find('tbody').find('tr').eq(i).find('td').eq(1)
@@ -13,14 +13,14 @@ function checkModel(model){
     })
 }
 
-function checkValidationMessages(nameReq, lastNameReq, emailReq, cardNumberReq) {
+function checkValidationMessages(nameReq:string, lastNameReq:string, emailReq:string, cardNumberReq:string):void {
   cy.get(rentFormLoc).find('h5').first().should('have.text', nameReq)
   cy.get(rentFormLoc).find('h5').eq(1).should('have.text', lastNameReq)
   cy.get(rentFormLoc).find('h5').eq(2).should('have.text', emailReq)
   cy.get(rentFormLoc).find('h5').last().should('have.text', cardNumberReq)
 }
 
-function checkDetails(brand, country, city, pickUpDate, dropOffDate) {
+function checkDetails(brand:string, country:string, city:string, pickUpDate:string, dropOffDate:string) {
   cy.get('[class=card-header]').should('contain', brand)
   cy.get('[class=card-title]').should('have.text', texts.adamsGroup)
   cy.get(cardTextLoc).first().should('have.text', texts.pricePerDay)

@@ -15,5 +15,8 @@
   },
   "cypress-cucumber-preprocessor": {
     "nonGlobalStepDefinitions": true
+  },
+  "dependencies": {
+    "@types/node": "^16.4.14"
   }
 }
