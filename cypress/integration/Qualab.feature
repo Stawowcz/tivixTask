@@ -1,5 +1,4 @@
 Feature: Qualab
-    I want to search for mazda 3
 
     Scenario: Search for Mazda 3
     Given I open Qualab page
