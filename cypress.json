@@ -7,7 +7,7 @@
       "runMode": 1,
       "openMode": 1
     },
-    "defaultCommandTimeout": 15000,
+    "defaultCommandTimeout": 8000,
     "reporter": "cypress-mochawesome-reporter",
     "reporterOptions": {
     "reportDir": "cypress/reports",
