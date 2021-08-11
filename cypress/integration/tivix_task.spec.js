@@ -2,12 +2,12 @@ import * as texts from '../fixtures/texts.js'
 
 const rentFormLoc = '#rent_form'
 const cardTextLoc = '[class=card-text]'
-
+const searchResultsLoc = '#search-results'
 
 function checkModel(model){
-  cy.get('#search-results').find('tbody').find('tr').its('length').then((length)=>{
+  cy.get(searchResultsLoc).find('tbody').find('tr').its('length').then((length)=>{
     for (let i = 0; i < length; i++) {
-      cy.get('#search-results').find('tbody').find('tr').eq(i).find('td').eq(1)
+      cy.get(searchResultsLoc).find('tbody').find('tr').eq(i).find('td').eq(1)
       .should('have.text', model)
     }
   })
@@ -44,9 +44,9 @@ describe('Qalab Car for Rent', function() {
     checkModel(this.data.mazda)
   })
 
-  it.only('Rent a Volkswagen Touran from Germany, Berlin and Check if Details Are Ok', () => {
+  it('Rent a Volkswagen Touran from Germany, Berlin and Check if Details Are Ok', () => {
     cy.searchCarToRent(this.data.germany, this.data.berlin, this.data.touron, this.data.pickup2, this.data.dropoff2)
-    cy.get('#search-results').find('tbody').find('tr').contains(this.data.touron && this.data.adamsGroup).parent().children().last().click()
+    cy.get(searchResultsLoc).find('tbody').find('tr').contains(this.data.touron && this.data.adamsGroup).parent().children().last().click()
     checkDetails(this.data.touron, this.data.germany, this.data.berlin, this.data.pickup2, this.data.dropoff2)
     cy.contains(texts.rent).click()
     cy.fillClientPersonalData(this.data.clientName, this.data.clientSurName, this.data.cartNumber, this.data.email)
@@ -55,13 +55,9 @@ describe('Qalab Car for Rent', function() {
 
   it('Check Validation Message When Client Personal Data Are Not Filled Up', () => {
     cy.searchCarToRent(this.data.germany, this.data.berlin, this.data.touron, this.data.pickup2, this.data.dropoff2)
-    cy.contains(this.data.touron).parent()
-    .children()
-    .last().click()
+    cy.get(searchResultsLoc).find('tbody').find('tr').contains(this.data.touron && this.data.adamsGroup).parent().children().last().click()
     cy.contains(texts.rent).click()
     cy.get('[type="submit"]').click()
     checkValidationMessages(texts.nameReq, texts.lastNameReq, texts.emailReq, texts.cardReq)
   })
 })
-
-
