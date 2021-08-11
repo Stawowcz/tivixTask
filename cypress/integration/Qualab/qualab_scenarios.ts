@@ -1,8 +1,10 @@
 import * as texts from '../../fixtures/texts.js'
-
+import { Given, Then, When } from "cypress-cucumber-preprocessor/steps";
 const rentFormLoc = '#rent_form'
 const cardTextLoc = '[class=card-text]'
 const searchResultsLoc = '#search-results'
+declare const Given, When, Then;
+// OR
 
 function checkModel(model:String):void{
     cy.get(searchResultsLoc).find('tbody').find('tr').its('length').then((length:any)=>{
