@@ -15,5 +15,6 @@
     "reportPageTitle": "My Test Suite",
     "embeddedScreenshots": true,
     "inlineAssets": true
-    }
+    },
+    "testFiles": "**/*.feature"
 }

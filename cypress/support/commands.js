@@ -12,6 +12,5 @@ Cypress.Commands.add('fillClientPersonalData', (name, surname, cartNumber, email
     cy.get('#last_name').type(surname)
     cy.get('#card_number').type(cartNumber)
     cy.get('#email').type(email)
-    cy.get('[type="submit"]').click()
   });
 
