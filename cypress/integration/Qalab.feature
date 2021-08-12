@@ -1,4 +1,4 @@
-Feature: Qualab
+Feature: Qalab
     I want to search for mazda 3
 
     Scenario: Search for Mazda 3
