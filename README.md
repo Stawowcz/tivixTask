@@ -5,7 +5,7 @@
 
 # jakubstawowczykTivixJS --> branch where are cypress tests in javascript without BDD approach
 
-1 git clone https://github.com/Stawowcz/tivixTask.git
+1.git clone https://github.com/Stawowcz/tivixTask.git
 
 2.npx cypress run -b chrome
 
@@ -13,7 +13,7 @@
 
 # jakubstawowczykTivixTS --> branch where are cypress test migrated to typescript without BDD approach
 
-1. git checkout jakubstawowczykTivixTS
+1.git checkout jakubstawowczykTivixTS
 
 2.npx cypress run -b chrome
 
@@ -21,7 +21,7 @@
 
 # jakubstawowczykTivixJsBDD --> branch where are cypress tests in javascript with BDD approach
 
-1. git checkout jakubstawowczykTivixJsBDD
+1.git checkout jakubstawowczykTivixJsBDD
 
 2.npx cypress run -b chrome
 
