@@ -31,7 +31,7 @@ function checkDetails(brand, country, city, pickUpDate, dropOffDate) {
 }
 
 //Scenario: Search for Mazda 3
-Given('I open Qualab page', () => {
+Given('I navigate to Qualab page', () => {
     cy.visit('/')
 })
 
@@ -52,7 +52,7 @@ Then('I should see only Mazda 3', (datatable) => {
 })
 
 //Rent a Volkswagen Touran from Germany, Berlin and Check if Details Are Ok
-Given('I open Qualab page', () => {
+Given('I navigate to Qualab page', () => {
   cy.visit('/')
 })
 
@@ -88,16 +88,16 @@ When('I fill client personal data', (datatable) => {
   })
 })
 
-When('I click on Submit button', () => {
+When('I click on Rent button', () => {
   cy.get('[type="submit"]').click()
 })
 
-Then('I should see Car rent successfully', () => {
+Then('I should see Car is rent successfully', () => {
   cy.contains(texts.successfully).should('be.visible')
 })
 
 //Check Validation Message When Client Personal Data Are Not Filled Up
-Given('I open Qualab page', () => {
+Given('I navigate to Qualab page', () => {
   cy.visit('/')
 })
 
@@ -121,7 +121,7 @@ When('I click on second Rent button', () => {
   cy.contains(texts.rent).click()
 })
 
-When('I click on Submit button', () => {
+When('I click on Rent button', () => {
   cy.get('[type="submit"]').click()
 })
 
