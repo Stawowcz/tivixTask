@@ -27,7 +27,7 @@ Feature: Qualab
     And   I fill client personal data  
             |  name | surname   |   cardNumber   |     email       |           
             | Jakub | Stawowczyk|1111111111111111| jakub@Gmail.com |
-    And   I click on Rent button
+    And   I click on last Rent button
     Then  I should see Car is rent successfully
 
     Scenario: Check Validation Message When Client Personal Data Are Not Filled Up
@@ -40,7 +40,7 @@ Feature: Qualab
             |       model      |   company  |
             | Volkswagen Touran| Adams Group|
     And   I click on second Rent button
-    And   I click on Rent button
+    And   I click on last Rent button
     Then  I should see validation messages
 
 

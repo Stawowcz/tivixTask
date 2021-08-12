@@ -88,7 +88,7 @@ When('I fill client personal data', (datatable) => {
   })
 })
 
-When('I click on Rent button', () => {
+When('I click on last Rent button', () => {
   cy.get('[type="submit"]').click()
 })
 
@@ -121,7 +121,7 @@ When('I click on second Rent button', () => {
   cy.contains(texts.rent).click()
 })
 
-When('I click on Rent button', () => {
+When('I click on last Rent button', () => {
   cy.get('[type="submit"]').click()
 })
 
